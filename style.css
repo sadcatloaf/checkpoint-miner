@@ -1,0 +1,14 @@
+body {
+
+    background-image: url(https://www.bing.com/th/id/OGC.6869e65ef8ea6d81ad2fafd2087e1f50?pid=1.7&rurl=https%3a%2f%2fusagif.com%2fwp-content%2fuploads%2fgif-christmas-tree-38.gif&ehk=cYa8APHlZcM4bHGggXXgR9r0rHVvxE%2fAA3rUl9f0nGs%3d);
+    background-position: center;
+    background-size: cover;
+    min-height: 100dvh;
+
+}
+
+hr {
+
+    color: antiquewhite;
+    height: 1px;
+}
