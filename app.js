@@ -131,7 +131,7 @@ setInterval(timeKittens, 3000)
 // }
 
 
-setInterval(timeKittens, 5000)
+setInterval(timeKittens, 3000)
 
 
 //#endregion
