@@ -2,7 +2,7 @@
 
 let kittens = 0
 let Clicks = 0
-let clickPower = 150
+let clickPower = 15
 let autoPower = 0
 
 const manualClickPower = [
@@ -31,7 +31,7 @@ const autoClickPower = [
     {
         name: 'Christmas-Tree',
         quantity: 0,
-        price: 5000,
+        price: 8000,
         power: 500
     }
 
@@ -49,7 +49,11 @@ function mineKittens() {
     drawKittens()
 }
 
-
+function timeKittens() {
+    kittens += autoPower
+    console.log('kitten clicked', kittens)
+    drawKittens()
+}
 
 
 function upgradeManual(itemName) {
@@ -88,44 +92,46 @@ function upgradeAuto(itemName) {
 
 function kittenUpgradeTimer() {
     for (let i = 0; i < autoClickPower.length; i++) {
-        const timePower = autoClickPower[i]
-        // animal.mood -= 1
-        // animal.mood-- // go down by one
-        let moodDecrease = 20
-
-        let totalSootheAmount = calculateSootheAmounts()
-
-        moodDecrease -= totalSootheAmount
-
-        animal.mood -= moodDecrease
-        // NOTE clamp
-        if (animal.mood < 0) {
-            animal.mood = 0
+        const time = autoClickPower[i]
+        if (time.power < 0) {
+            autoPower += kittens
         }
-
-        if (animal.mood > 100) {
-            animal.mood = 100
+        else {
+            autoPower = 0
         }
-
     }
-    drawAllAnimalStats()
+    drawKittens()
 }
 
+setInterval(timeKittens, 3000)
 
-// function timePower() {
-//     for (let i = 0; i < autoClickPower.length; i++) {
-//         const auto = autoClickPower[i]
-//         if (auto.power > 0) {
-//             kittens += autoPower
-//             console.log('item', autoPower)
+// function decreaseAnimalMoods() {
+//     for (let i = 0; i < animals.length; i++) {
+//         const animal = animals[i]
+//         // animal.mood -= 1
+//         // animal.mood-- // go down by one
+//         let moodDecrease = 20
+
+//         let totalSootheAmount = calculateSootheAmounts()
+
+//         moodDecrease -= totalSootheAmount
+
+//         animal.mood -= moodDecrease
+//         // NOTE clamp
+//         if (animal.mood < 0) {
+//             animal.mood = 0
 //         }
-//     }
 
-//     drawKittens()
+//         if (animal.mood > 100) {
+//             animal.mood = 100
+//         }
+
+//     }
+//     drawAllAnimalStats()
 // }
 
 
-// setInterval(mineKittens, 3000)
+setInterval(timeKittens, 5000)
 
 
 //#endregion
