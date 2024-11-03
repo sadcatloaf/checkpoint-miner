@@ -2,7 +2,7 @@
 
 let kittens = 0
 let Clicks = 0
-let clickPower = 1
+let clickPower = 150
 let autoPower = 0
 
 const manualClickPower = [
@@ -29,7 +29,7 @@ const autoClickPower = [
         power: 80
     },
     {
-        name: 'Christmas Tree',
+        name: 'Christmas-Tree',
         quantity: 0,
         price: 5000,
         power: 500
@@ -50,8 +50,11 @@ function mineKittens() {
 }
 
 
+
+
 function upgradeManual(itemName) {
     const foundKittenItem = manualClickPower.find(manualCat => manualCat.name == itemName)
+    // console.log(foundKittenItem)
     if (kittens < foundKittenItem.price) {
         window.alert(`You cannot afford the ${foundKittenItem.name}!`)
         return
@@ -66,8 +69,63 @@ function upgradeManual(itemName) {
     drawUpgrade(foundKittenItem)
 }
 
+function upgradeAuto(itemName) {
+    const foundKittenItem = autoClickPower.find(autoCat => autoCat.name == itemName)
+    // console.log(foundKittenItem)
+    if (kittens < foundKittenItem.price) {
+        window.alert(`You cannot afford the ${foundKittenItem.name}!`)
+        return
+    }
+    kittens -= foundKittenItem.price
+    foundKittenItem.quantity++
+    foundKittenItem.price += 35
+    autoPower += foundKittenItem.power
+    console.log('item', itemName)
+    drawKittens()
+    drawAutoPower()
+    drawUpgrade(foundKittenItem)
+}
+
+function kittenUpgradeTimer() {
+    for (let i = 0; i < autoClickPower.length; i++) {
+        const timePower = autoClickPower[i]
+        // animal.mood -= 1
+        // animal.mood-- // go down by one
+        let moodDecrease = 20
+
+        let totalSootheAmount = calculateSootheAmounts()
+
+        moodDecrease -= totalSootheAmount
+
+        animal.mood -= moodDecrease
+        // NOTE clamp
+        if (animal.mood < 0) {
+            animal.mood = 0
+        }
+
+        if (animal.mood > 100) {
+            animal.mood = 100
+        }
+
+    }
+    drawAllAnimalStats()
+}
 
 
+// function timePower() {
+//     for (let i = 0; i < autoClickPower.length; i++) {
+//         const auto = autoClickPower[i]
+//         if (auto.power > 0) {
+//             kittens += autoPower
+//             console.log('item', autoPower)
+//         }
+//     }
+
+//     drawKittens()
+// }
+
+
+// setInterval(mineKittens, 3000)
 
 
 //#endregion
@@ -91,7 +149,10 @@ function drawClickPower() {
     PowerElm.innerText = clickPower.toString()
 }
 
-
+function drawAutoPower() {
+    let PowerElm = document.getElementById('Time')
+    PowerElm.innerText = autoPower.toString()
+}
 
 
 
