@@ -1,31 +1,38 @@
 //#region 🗃️ Arrays
 
 let kittens = 0
+let Clicks = 0
+let clickPower = 1
+let autoPower = 0
 
-const catItems = [
+const manualClickPower = [
     {
         name: 'Yarn',
         quantity: 0,
-        price: 150,
-        kitten: 5
+        price: 15,
+        power: 5
     },
     {
         name: 'Temptations',
         quantity: 0,
         price: 300,
-        kitten: 15
-    },
+        power: 15
+    }
+
+]
+
+const autoClickPower = [
     {
         name: 'Salmon',
         quantity: 0,
         price: 1000,
-        kitten: 80
+        power: 80
     },
     {
         name: 'Christmas Tree',
         quantity: 0,
         price: 5000,
-        kitten: 500
+        power: 500
     }
 
 ]
@@ -37,15 +44,27 @@ const catItems = [
 //#region 🧠 Logic
 
 function mineKittens() {
-    kittens += 1
+    kittens += clickPower
     console.log('kitten clicked', kittens)
     drawKittens()
 }
 
 
-
-
-
+function upgradeManual(itemName) {
+    const foundKittenItem = manualClickPower.find(manualCat => manualCat.name == itemName)
+    if (kittens < foundKittenItem.price) {
+        window.alert(`You cannot afford the ${foundKittenItem.name}!`)
+        return
+    }
+    kittens -= foundKittenItem.price
+    foundKittenItem.quantity++
+    foundKittenItem.price += 15
+    clickPower += foundKittenItem.power
+    console.log('item', itemName)
+    drawKittens()
+    drawClickPower()
+    drawUpgrade(foundKittenItem)
+}
 
 
 
@@ -55,11 +74,27 @@ function mineKittens() {
 //#region 🖌️ Draw
 function drawKittens() {
     let counterElm = document.getElementById('kitten-counter')
-    console.log('kitten clicked', kittens)
     counterElm.innerText = kittens.toString()
+
 }
 
-//#endregion
+function drawUpgrade(item) {
+    const manualItemElem = document.getElementById(item.name)
+    const spanElem = manualItemElem.querySelector('span')
+    const pElem = manualItemElem.querySelector('p')
+    spanElem.innerText = item.quantity.toString()
+    pElem.innerText = item.price.toString()
+}
 
+function drawClickPower() {
+    let PowerElm = document.getElementById('Click')
+    PowerElm.innerText = clickPower.toString()
+}
+
+
+
+
+
+//#endregion
 
 

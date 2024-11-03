@@ -46,12 +46,12 @@
                     <hr>
                     <div class="row m-2 justify-content-between text-light">
                         <div class="col-2">
-                            <p>Clicks</p>
-                            <p class="text-center">0</p>
+                            <p>Click Power</p>
+                            <span id="Click" class="text-center">0</span>
                         </div>
-                        <div class="col-2">
-                            <p>Time</p>
-                            <p class="text-center">0</p>
+                        <div id="Time" class="col-2">
+                            <p>Timer Power</p>
+                            <span class="text-center">0</span>
                         </div>
                     </div>
                 </div>
@@ -63,29 +63,38 @@
             <div class="col-4 text-light bg-success m-5">
                 <div class="row">
                     <p class="text-center m-3">Upgrades</p>
-                    <p></p>
+                </div>
+                <div class="row">
+                    <div class="col-5 d-flex justify-content-end">
+                        <h5>Qty:</h5>
+                    </div>
+                    <div class="col-5 d-flex justify-content-end">
+                        <h5>Qty:</h5>
+                    </div>
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col-5 m-2">
-                        <p class="d-flex justify-content-between">
-                            <span>Yarn</span>
+                        <div id="Yarn" class="d-flex justify-content-between">
+                            <p onclick="upgradeManual('Yarn')" class="card fs-5">15</p>
+                            <h4>Yarn +5: </h4>
                             <span>0</span>
-                        </p>
-                        <p class="d-flex justify-content-between">
-                            <span>Temptations</span>
+                        </div>
+                        <div id="Temptations" class="d-flex justify-content-between">
+                            <p onclick="upgradeManual('Temptations')" class="card fs-5">300</p>
+                            <h4>Temptations +15</h4>
                             <span>0</span>
-                        </p>
+                        </div>
                     </div>
                     <div class="col-5 m-2">
-                        <p class="d-flex justify-content-between">
-                            <span>Salmon</span>
-                            <span>0</span>
-                        </p>
-                        <p class="d-flex justify-content-between">
-                            <span>Christmas Tree</span>
-                            <span>0</span>
-                        </p>
+                        <div id="Salmon" class="d-flex justify-content-between">
+                            <p class="card fs-5">Salmon</p>
+                            <p>0</p>
+                        </div>
+                        <div id="Christmas-Tree" class="d-flex justify-content-between">
+                            <p class="card fs-5">Christmas Tree</p>
+                            <p>0</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -97,24 +106,24 @@
                 <hr>
                 <div class="row">
                     <div class="col-5 m-2">
-                        <p class="d-flex justify-content-between">
-                            <span>Yarn</span>
+                        <div class="d-flex justify-content-between">
+                            <p>Yarn</p>
                             <span>0</span>
-                        </p>
-                        <p class="d-flex justify-content-between">
-                            <span>Temptations</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <p>Temptations</p>
                             <span>0</span>
-                        </p>
+                        </div>
                     </div>
                     <div class="col-5 m-2">
-                        <p class="d-flex justify-content-between">
-                            <span>Salmon</span>
-                            <span>0</span>
-                        </p>
-                        <p class="d-flex justify-content-between">
-                            <span>Christmas Tree</span>
-                            <span>0</span>
-                        </p>
+                        <div class="d-flex justify-content-between">
+                            <p>Salmon</p>
+                            <p>0</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <p>Christmas Tree</p>
+                            <p>0</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -156,3 +165,120 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Zoo Keeper</title>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-md-4">
+          <h1 class="m-1 text-light text-outline">Zoo Keeper</h1>
+        </div>
+        <div class="col-md-4">
+          <h2 class="m-1 text-end text-light text-outline">Money: $<span id="my-money">0</span></h2>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container-fluid">
+      ANCHOR animal homes -->
+<!-- <section class="row">
+        <div id="jeffrey" class="col-md-4">
+          <div class="border border-3 border-dark animal-home jungle-bg mt-3">
+            <marquee behavior="alternate" direction="up" scrollamount="10" class="outer-marquee">
+              <marquee behavior="alternate" direction="right" scrollamount="5">
+                <span onclick="sootheAnimal('jeffrey')" class="display-2 animal">🐅</span>
+              </marquee>
+            </marquee>
+          </div>
+          <p class="fs-2 text-center text-capitalize">Jeffrey | Mood 100</p>
+        </div>
+        <div id="polka-dot" class="col-md-4">
+          <div class="border border-3 border-dark animal-home grassland-bg mt-3">
+            <marquee behavior="alternate" direction="down" scrollamount="5" class="outer-marquee">
+              <marquee behavior="alternate" direction="left" scrollamount="10">
+                <span onclick="sootheAnimal('polka-dot')" class="display-2 animal">🦓</span>
+              </marquee>
+            </marquee>
+          </div>
+          <p class="fs-2 text-center text-capitalize">Polka-Dot | Mood 100</p>
+        </div>
+        <div id="brenda" class="col-md-4">
+          <div class="border border-3 border-dark animal-home swamp-bg mt-3">
+            <marquee behavior="alternate" direction="up" scrollamount="3" class="outer-marquee">
+              <marquee behavior="alternate" direction="left" scrollamount="3">
+                <span onclick="sootheAnimal('brenda')" class="display-2 animal">🐊</span>
+              </marquee>
+            </marquee>
+          </div>
+          <p class="fs-2 text-center text-capitalize">Brenda | Mood 100</p>
+        </div>
+      </section> -->
+
+<!-- ANCHOR shop -->
+<!-- <section class="row">
+        <h2>Shop</h2>
+        <div id="ball" class="col-md-3">
+          <div class="text-center">
+            <p class="fs-3">Ball ⚽ | $200</p>
+            <p class="fs-4">Qty: <span>0</span></p>
+            <button onclick="purchaseAnimalItem('ball')" class="btn btn-primary fs-3">Buy!</button>
+          </div>
+        </div>
+        <div id="treats" class="col-md-3">
+          <div class="text-center">
+            <p class="fs-3">Treats 🍬 | $500</p>
+            <p class="fs-4">Qty: <span>0</span></p>
+            <button onclick="purchaseAnimalItem('treats')" class="btn btn-primary fs-3">Buy!</button>
+          </div>
+        </div>
+        <div id="trampoline" class="col-md-3">
+          <div class="text-center">
+            <p class="fs-3">Trampoline 🚀 | $10000</p>
+            <p class="fs-4">Qty: <span>0</span></p>
+            <button onclick="purchaseAnimalItem('trampoline')" class="btn btn-primary fs-3">Buy!</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+
+</html> -->
